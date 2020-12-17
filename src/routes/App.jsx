@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { Home,
+import {
+  Home,
   Checkout,
   Information,
   Payment,
   Success,
-  NotFound
-} from "../containers/index"
+  NotFound,
+} from '../containers/index';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;
