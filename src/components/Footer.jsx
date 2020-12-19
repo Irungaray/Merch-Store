@@ -8,7 +8,7 @@ const Footer = () => {
       <p className="Footer-title">Merch</p>
       <p className="Footer-copy">Copiame esta</p>
     </div>
-  )
-}
+  );
+};
 
 export default Footer;

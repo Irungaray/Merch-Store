@@ -10,11 +10,11 @@ const Layout = ({ children }) => {
     <div className="Main">
       <Header />
 
-      { children }
+      {children}
 
       <Footer />
     </div>
   );
-}
+};
 
 export default Layout;

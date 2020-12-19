@@ -7,11 +7,9 @@ const Header = () => {
     <div className="Header">
       <h1 className="Header-title">Merch Store</h1>
 
-      <div className="Header-checkout">
-        Checkout
-      </div>
+      <div className="Header-checkout">Checkout</div>
     </div>
   );
-}
+};
 
 export default Header;
