@@ -29,9 +29,7 @@ const Information = () => {
           <div className="Information-back">Go Back</div>
 
           <div className="Information-next">
-            <Link to="/checkout/payment">
-              Continue and Pay
-            </Link>
+            <Link to="/checkout/payment">Continue and Pay</Link>
           </div>
         </div>
       </div>
