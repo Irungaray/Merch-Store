@@ -9,10 +9,7 @@ const Product = ({ product }) => {
         <h2>
           {product.title}
 
-          <span>
-            $
-            {product.price}
-          </span>
+          <span>${product.price}</span>
         </h2>
 
         <p>{product.description}</p>
@@ -21,6 +18,6 @@ const Product = ({ product }) => {
       <button type="button">Buy</button>
     </div>
   );
-}
+};
 
 export default Product;
