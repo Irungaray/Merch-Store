@@ -20,7 +20,7 @@ const App = () => {
           <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/checkout/info" component={Information} />
           <Route exact path="/checkout/payment" component={Payment} />
-          <Route exact path="/checkout/succes" component={Success} />
+          <Route exact path="/checkout/success" component={Success} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
