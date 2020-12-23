@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import AppContext from '../context/AppContext';
 
 import '../styles/components/Information.css';
 
 const Information = () => {
+  const { state, addToBuyer } = useContext(AppContext);
+  const form = useRef(null);
+
+  const { cart } = state;
+
+  const handleSubmit = () => {
+    const formData = new FormData(form.current);
+    const buyer = {
+      'name': formData.get('name'),
+      'email': formData.get('email'),
+      'country': formData.get('country'),
+      'address': formData.get('adress'),
+      'city': formData.get('city'),
+      'state': formData.get('state'),
+      'adress': formData.get('adress'),
+      'apto': formData.get('apto'),
+      'cp': formData.get('cp'),
+      'phone': formData.get('phone')
+    };
+
+    addToBuyer(buyer);
+  }
+
   return (
     <div className="Information">
       <div className="Information-content">
@@ -12,7 +37,7 @@ const Information = () => {
         </div>
 
         <div className="Information-form">
-          <form action="">
+          <form ref={form}>
             <input type="text" placeholder="Name" name="name" />
             <input type="text" placeholder="Email" name="email" />
             <input type="text" placeholder="Country" name="country" />
@@ -26,10 +51,21 @@ const Information = () => {
         </div>
 
         <div className="Information-buttons">
-          <div className="Information-back">Go Back</div>
+          <div className="Information-back">
+            <Link to="/checkout">
+              Go Back
+            </Link>
+          </div>
 
           <div className="Information-next">
-            <Link to="/checkout/payment">Continue and Pay</Link>
+            <Link to="/checkout/payment">
+              <button
+                type="button"
+                onClick={handleSubmit}
+              >
+                Continue and Pay
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -37,12 +73,17 @@ const Information = () => {
       <div className="information-Sidebar">
         <h3>Order:</h3>
 
-        <div className="Information-item">
-          <div className="Information-element">
-            <h4>ITEM Name</h4>
-            <span>$10</span>
+        {cart.map((item) => (
+          <div className="Information-item" key={item.title}>
+            <div className="Information-element">
+              <h4>{item.title}</h4>
+              <span>
+                $
+                {item.price}
+              </span>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
