@@ -9,35 +9,37 @@ const Checkout = () => {
   const { state, removeFromCart } = useContext(AppContext);
   const { cart } = state;
 
-  const handleRemove = product => () => {
-    removeFromCart(product);
+  const handleRemove = (product, i) => () => {
+    removeFromCart(product, i);
   };
 
   const handleSumTotal = () => {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+    const reducer = (accumulator, currentValue) =>
+      accumulator + currentValue.price;
     const sum = cart.reduce(reducer, 0);
 
     return sum;
-  }
+  };
 
   return (
     <div className="Checkout">
       <div className="Checkout-content">
         <h3>
-          { cart.length > 0 ? <h3>Products list:</h3> : <h3>Buy something you motherfucker!</h3> }
+          {cart.length > 0 ? (
+            <h3>Products list:</h3>
+          ) : (
+            <h3>Buy something you motherfucker!</h3>
+          )}
         </h3>
 
-        {cart.map((item) => (
+        {cart.map((item, i) => (
           <div className="Checkout-item">
             <div className="Checkout-element">
               <h4>{item.title}</h4>
               <span>${item.price}</span>
             </div>
 
-            <button
-              type="button"
-              onClick={handleRemove(item)}
-            >
+            <button type="button" onClick={handleRemove(item, i)}>
               <i className="fas fa-trash-alt" />
             </button>
           </div>
