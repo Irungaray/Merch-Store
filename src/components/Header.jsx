@@ -20,8 +20,7 @@ const Header = () => {
           <i className="fas fa-shopping-basket">Checkout</i>
         </Link>
 
-        {cart.length > 0
-          && <div className="Header-alert">{cart.length}</div>}
+        {cart.length > 0 && <div className="Header-alert">{cart.length}</div>}
       </div>
     </div>
   );
