@@ -2,6 +2,7 @@ import React, { useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import AppContext from '../context/AppContext';
+import handleSumTotal from '../utils/index'
 
 import '../styles/components/Information.css';
 
@@ -30,14 +31,6 @@ const Information = () => {
 
     addToBuyer(buyer);
     history.push('/checkout/payment');
-  };
-
-  const handleSumTotal = () => {
-    const reducer = (accumulator, currentValue) =>
-      accumulator + currentValue.price;
-    const sum = cart.reduce(reducer, 0);
-
-    return sum;
   };
 
   return (
@@ -91,7 +84,7 @@ const Information = () => {
         <div className="Information-item">
           <div className="Information-element">
             <h3>Total Price:</h3>
-            <h3>${handleSumTotal()}</h3>
+            <h3>${handleSumTotal(cart)}</h3>
           </div>
         </div>
       </div>

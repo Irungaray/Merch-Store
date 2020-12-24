@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button';
 
 import AppContext from '../context/AppContext';
+import handleSumTotal from '../utils/index'
 
 import '../styles/components/Payment.css';
 
@@ -13,35 +14,27 @@ const Payment = ({ history }) => {
     clientId:
       'AYOgBQAQ2-58eRZCiqN4sdFwx6rWWrP-D-FX6Zz-S7lbqmFiidz8MdWCwVGDAFzr0ARfNKsQIWwYJekC',
     intent: 'capture',
-    currency: 'USD'
-  }
+    currency: 'USD',
+  };
 
   const buttonSyles = {
     layout: 'vertical',
-    shape: 'rect'
-  }
+    shape: 'rect',
+  };
 
   const handlePaymentSuccess = (data) => {
-    console.log(data)
+    console.log(data);
 
     if (data.status === 'COMPLETED') {
       const newOrder = {
         buyer,
         product: cart,
-        payment: data
-      }
+        payment: data,
+      };
 
       addNewOrder(newOrder);
-      history.push('/checkout/succes')
+      history.push('/checkout/succes');
     }
-  }
-
-  const handleSumTotal = () => {
-    const reducer = (accumulator, currentValue) =>
-      accumulator + currentValue.price;
-    const sum = cart.reduce(reducer, 0);
-
-    return sum;
   };
 
   return (
@@ -52,7 +45,7 @@ const Payment = ({ history }) => {
           <div className="Payment-item" key={item.id}>
             <div className="Payment-element">
               <h4>{item.title}</h4>
-              <span>$ {' '} {item.price}</span>
+              <span>$ {item.price}</span>
             </div>
           </div>
         ))}
@@ -61,11 +54,19 @@ const Payment = ({ history }) => {
           <PayPalButton
             paypalOptions={paypalOptions}
             buttonStyles={buttonSyles}
-            amount={handleSumTotal()}
-            onPaymentStart={() => console.log('Payment Started')}
-            onPaymentSuccess={data => handlePaymentSuccess('Payment Success:', data)}
-            onPaymentError={error => console.log('Payment error:', error)}
-            onPaymentCancel={data => console.log('Payment canceled:', data)}
+            amount={handleSumTotal(cart)}
+            onPaymentStart={() =>
+              console.log('Payment Started')
+            }
+            onPaymentSuccess={(data) =>
+              handlePaymentSuccess('Payment Success:', data)
+            }
+            onPaymentError={(error) =>
+              console.log('Payment error:', error)
+            }
+            onPaymentCancel={(data) =>
+              console.log('Payment canceled:', data)
+            }
           />
         </div>
       </div>
