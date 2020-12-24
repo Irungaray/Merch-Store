@@ -6,16 +6,19 @@ import {
   Marker
 } from '@react-google-maps/api';
 
-const Map = () => {
+const Map = ({ data }) => {
   const mapStyles= {
     height: "50vh",
     width: "100%"
   }
 
   const defaultCenter = {
-    lat: 19.4212442,
-    lng: -34.2345
+    lat: data.lat,
+    lng: data.lng
+    // pass as an array?
   }
+
+  console.log(defaultCenter)
 
   return (
     <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY}>
