@@ -20,8 +20,8 @@ const Information = () => {
       name: formData.get('name'),
       email: formData.get('email'),
       country: formData.get('country'),
+      province: formData.get('province'),
       city: formData.get('city'),
-      state: formData.get('state'),
       address: formData.get('address'),
       apto: formData.get('apto'),
       cp: formData.get('cp'),
@@ -44,8 +44,8 @@ const Information = () => {
             <input type="text" placeholder="Name" name="name" />
             <input type="text" placeholder="Email" name="email" />
             <input type="text" placeholder="Country" name="country" />
+            <input type="text" placeholder="Province" name="province" />
             <input type="text" placeholder="City" name="city" />
-            <input type="text" placeholder="State" name="state" />
             <input type="text" placeholder="Address" name="address" />
             <input type="text" placeholder="Apartament" name="apto" />
             <input type="text" placeholder="Postal code" name="cp" />

@@ -12,7 +12,13 @@ const Success = () => {
   const { state } = useContext(AppContext);
   const { buyer } = state;
 
-  const address = useGoogleAddress(buyer[0].address);
+  const buyerLocation = useGoogleAddress(
+    // destructure it
+    buyer[0].address,
+    buyer[0].city,
+    buyer[0].province,
+    buyer[0].country
+  );
 
   return (
     <div className="Succes">
@@ -21,7 +27,7 @@ const Success = () => {
         <span>It will come to you within 3 days from now on.</span>
 
         <div className="Success-map">
-          <Map data={address} />
+          <Map data={buyerLocation} />
         </div>
       </div>
     </div>

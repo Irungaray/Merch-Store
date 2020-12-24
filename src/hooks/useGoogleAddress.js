@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useGoogleAddress = (address) => {
+const useGoogleAddress = (address, city, province, country) => {
   const [map, setMap] = useState({});
-  const API = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`
+  const API = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}${city}${province}${country}&key=${process.env.REACT_APP_API_KEY}`
 
-  console.log(API)
+  console.log(API) 
 
   useEffect(async () => {
     const response = await axios(API);
