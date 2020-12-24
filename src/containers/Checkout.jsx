@@ -24,16 +24,14 @@ const Checkout = () => {
   return (
     <div className="Checkout">
       <div className="Checkout-content">
-        <h3>
-          {cart.length > 0 ? (
-            <h3>Products list:</h3>
-          ) : (
-            <h3>Buy something you motherfucker!</h3>
-          )}
-        </h3>
+        {cart.length > 0 ? (
+          <h3>Products list:</h3>
+        ) : (
+          <h3>Buy something you motherfucker!</h3>
+        )}
 
         {cart.map((item, i) => (
-          <div className="Checkout-item">
+          <div className="Checkout-item" key={item.id}>
             <div className="Checkout-element">
               <h4>{item.title}</h4>
               <span>${item.price}</span>
