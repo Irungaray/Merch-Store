@@ -2,7 +2,7 @@ import React, { useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import AppContext from '../context/AppContext';
-import handleSumTotal from '../utils/index'
+import handleSumTotal from '../utils/index';
 
 import '../styles/components/Information.css';
 

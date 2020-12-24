@@ -2,14 +2,13 @@ import React, { useContext } from 'react';
 import { PayPalButton } from 'react-paypal-button';
 
 import AppContext from '../context/AppContext';
-import handleSumTotal from '../utils'
+import handleSumTotal from '../utils';
 
 import '../styles/components/Payment.css';
 
 const Payment = ({ history }) => {
   const { state, addNewOrder } = useContext(AppContext);
   const { cart, buyer } = state;
-
 
   const paypalOptions = {
     clientId: process.env.REACT_APP_CLIENT_ID,
@@ -56,9 +55,9 @@ const Payment = ({ history }) => {
             buttonStyles={buttonStyles}
             amount={handleSumTotal(cart)}
             onPaymentStart={() => console.log('Start Payment')}
-            onPaymentSuccess={data => handlePaymentSuccess(data)}
-            onPaymentError={error => console.log(error)}
-            onPaymentCancel={data => console.log(data)}
+            onPaymentSuccess={(data) => handlePaymentSuccess(data)}
+            onPaymentError={(error) => console.log(error)}
+            onPaymentCancel={(data) => console.log(data)}
           />
         </div>
       </div>

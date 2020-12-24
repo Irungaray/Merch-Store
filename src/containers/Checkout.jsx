@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import AppContext from '../context/AppContext';
-import handleSumTotal from '../utils/index'
+import handleSumTotal from '../utils/index';
 
 import '../styles/components/Checkout.css';
 
