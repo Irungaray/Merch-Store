@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import AppContext from '../context/AppContext';
 import handleSumTotal from '../utils/index';
@@ -15,44 +16,50 @@ const Checkout = () => {
   };
 
   return (
-    <div className="Checkout">
-      <div className="Checkout-content">
-        {cart.length > 0 ? (
-          <h3>Products list:</h3>
-        ) : (
-          <h3>Buy something you motherfucker!</h3>
+    <>
+      <Helmet>
+        <title>Merch Store - Checkout</title>
+      </Helmet>
+
+      <div className="Checkout">
+        <div className="Checkout-content">
+          {cart.length > 0 ? (
+            <h3>Products list:</h3>
+          ) : (
+            <h3>Buy something you motherfucker!</h3>
+          )}
+
+          {cart.map((item, i) => (
+            <div className="Checkout-item" key={item.id}>
+              <div className="Checkout-element">
+                <h4>{item.title}</h4>
+                <span>${item.price}</span>
+              </div>
+
+              <button type="button" onClick={handleRemove(item, i)}>
+                <i className="fas fa-trash-alt" />
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {cart.length > 0 && (
+          <div className="Checkout-sidebar">
+            <h3>{`Total Price: $${handleSumTotal(cart)}`}</h3>
+
+            <Link to="/checkout/info">
+              <button type="button">Continue</button>
+            </Link>
+          </div>
         )}
 
-        {cart.map((item, i) => (
-          <div className="Checkout-item" key={item.id}>
-            <div className="Checkout-element">
-              <h4>{item.title}</h4>
-              <span>${item.price}</span>
-            </div>
-
-            <button type="button" onClick={handleRemove(item, i)}>
-              <i className="fas fa-trash-alt" />
-            </button>
-          </div>
-        ))}
-      </div>
-
-      {cart.length > 0 && (
         <div className="Checkout-sidebar">
-          <h3>{`Total Price: $${handleSumTotal(cart)}`}</h3>
-
-          <Link to="/checkout/info">
-            <button type="button">Continue</button>
+          <Link to="/">
+            <button type="button">Go Back</button>
           </Link>
         </div>
-      )}
-
-      <div className="Checkout-sidebar">
-        <Link to="/">
-          <button type="button">Go Back</button>
-        </Link>
       </div>
-    </div>
+    </>
   );
 };
 
