@@ -4,7 +4,7 @@ const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="Products-item">
       <img
-        src={`https://us-central1-gndx-fake-api.cloudfunctions.net/api/${product.image[0].url}`}
+        // src={`https://us-central1-gndx-fake-api.cloudfunctions.net/api${product.image[0].url}`}
         alt={product.title}
       />
 
