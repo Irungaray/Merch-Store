@@ -3,16 +3,19 @@ import React from 'react';
 const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="Products-item">
-      <img src={`http://localhost:1337${product.Image[0].url}`} alt={product.title} />
+      <img
+        src={`https://us-central1-gndx-fake-api.cloudfunctions.net/api/${product.image[0].url}`}
+        alt={product.title}
+      />
 
       <div className="Product-item-info">
         <h2>
-          {product.Title}
+          {product.title}
 
-          <span> ${product.Price}</span>
+          <span> ${product.price}</span>
         </h2>
 
-        <p>{product.Description}</p>
+        <p>{product.description}</p>
       </div>
 
       <button type="button" onClick={handleAddToCart(product)}>

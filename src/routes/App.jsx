@@ -36,7 +36,9 @@ const App = () => {
             </Layout>
           </BrowserRouter>
         </AppContext.Provider>
-      ) : <h1>Loading</h1>}
+      ) : (
+        <h1>Loading</h1>
+      )}
     </>
   );
 };
