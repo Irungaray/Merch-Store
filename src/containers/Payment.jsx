@@ -11,7 +11,7 @@ const Payment = ({ history }) => {
   const { cart, buyer } = state;
 
   const paypalOptions = {
-    clientId: 'AYOgBQAQ2-58eRZCiqN4sdFwx6rWWrP-D-FX6Zz-S7lbqmFiidz8MdWCwVGDAFzr0ARfNKsQIWwYJekC',
+    clientId: 'sb',
     intent: 'capture',
     currency: 'USD',
   };
