@@ -32,7 +32,7 @@ const Products = () => {
         ))}
       </div>
 
-      {cart.length > 0 &&
+      {cart.length > 0 && (
         <div className="Header-alert">
           <h3>{cart.length} items on the cart!</h3>
 
@@ -40,7 +40,7 @@ const Products = () => {
             <h3>Go to Checkout</h3>
           </Link>
         </div>
-      }
+      )}
     </div>
   );
 };
