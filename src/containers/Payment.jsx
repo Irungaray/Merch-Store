@@ -16,6 +16,8 @@ const Payment = ({ history }) => {
     currency: 'USD',
   };
 
+  console.log(paypalOptions.clientId)
+
   const buttonStyles = {
     layout: 'vertical',
     shape: 'rect',

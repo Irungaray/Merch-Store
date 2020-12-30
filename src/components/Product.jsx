@@ -10,10 +10,7 @@ const Product = ({ product, handleAddToCart }) => {
 
   return (
     <div className="Products-item">
-      <img
-        src={`${product.image[0].url}`}
-        alt={product.title}
-      />
+      <img src={`${product.image[0].url}`} alt={product.title} />
 
       <div className="Product-item-info">
         <h2 className="Product-item-info-title">{product.title}</h2>
