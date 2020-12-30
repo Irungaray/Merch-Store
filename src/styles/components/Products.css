@@ -20,6 +20,9 @@
   display: flex;
   justify-content: space-between;
 }
+.Product-item-info-title {
+  text-align: center;
+}
 .Products-item-info h2 span {
   color: #33b13a;
 }
