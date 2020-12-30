@@ -18,10 +18,8 @@ const Map = ({ data }) => {
 
   console.log(defaultCenter);
 
-  const gMapsApiKey = functions.config().googlemapsapi.key
-
   return (
-    <LoadScript googleMapsApiKey={gMapsApiKey}>
+    <LoadScript googleMapsApiKey='AIzaSyCmXCbBEd0K2QyDb0ev9vUYh4BiI_ciNhk'>
       <GoogleMap mapContainerStyle={mapStyles} zoom={9} center={defaultCenter}>
         <Marker position={defaultCenter} />
       </GoogleMap>
