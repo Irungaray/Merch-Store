@@ -5,7 +5,7 @@ import initialState from '../initialState';
 
 // const API = 'http://localhost:1337/products';
 // const API = 'https://us-central1-gndx-fake-api.cloudfunctions.net/api';
-const API = 'https://merchstoreapi.appspot.com/products'
+const API = 'https://merchstoreapi.appspot.com/products';
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
