@@ -38,6 +38,10 @@ const Payment = ({ history }) => {
     }
   };
 
+  const handleSkipPayment = () => {
+    history.push('/checkout/success');
+  }
+
   return (
     <div className="Payment">
       <div className="Payment-content">
@@ -62,6 +66,10 @@ const Payment = ({ history }) => {
             onPaymentCancel={(data) => console.log(data)}
           />
         </div>
+
+        <button onClick={handleSkipPayment}>
+          Don't you dare to skip payment!
+        </button>
       </div>
     </div>
   );
