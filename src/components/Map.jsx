@@ -9,9 +9,11 @@ const Map = ({ data }) => {
   };
 
   const defaultCenter = {
-    lat: data.lat,
-    lng: data.lng,
+    lat: +data.lat,
+    lng: +data.lng,
     // this throws console errors. Is it because async functions?
+    // no, it was because data was passed as a string
+    // corrected? adding the +
   };
 
   console.log(defaultCenter);

@@ -11,7 +11,7 @@ const Products = () => {
   const { products, addToCart } = useContext(AppContext);
 
   if (products.length == 0) {
-    return <Loader />
+    return <Loader />;
   }
 
   const handleAddToCart = (product) => () => {
