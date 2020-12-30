@@ -18,8 +18,10 @@ const Map = ({ data }) => {
 
   console.log(defaultCenter);
 
+  const gMapsApiKey = functions.config().googlemapsapi.key
+
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY}>
+    <LoadScript googleMapsApiKey={gMapsApiKey}>
       <GoogleMap mapContainerStyle={mapStyles} zoom={9} center={defaultCenter}>
         <Marker position={defaultCenter} />
       </GoogleMap>
