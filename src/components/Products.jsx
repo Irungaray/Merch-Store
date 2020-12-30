@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import AppContext from '../context/AppContext';
 
@@ -8,7 +9,8 @@ import Loader from './Loader';
 import '../styles/components/Products.css';
 
 const Products = () => {
-  const { products, addToCart } = useContext(AppContext);
+  const { products, addToCart, state } = useContext(AppContext);
+  const { cart } = state;
 
   if (products.length == 0) {
     return <Loader />;
@@ -29,6 +31,16 @@ const Products = () => {
           />
         ))}
       </div>
+
+      {cart.length > 0 &&
+        <div className="Header-alert">
+          <h3>{cart.length} items on the cart!</h3>
+
+          <Link to="/checkout">
+            <h3>Go to Checkout</h3>
+          </Link>
+        </div>
+      }
     </div>
   );
 };

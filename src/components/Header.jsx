@@ -16,11 +16,11 @@ const Header = () => {
       </h1>
 
       <div className="Header-checkout">
-        <Link to="/checkout">
-          <i className="fas fa-shopping-basket">Checkout</i>
-        </Link>
+        {cart.length > 0 && <div className="Header-alert"><h3>{cart.length}</h3></div>}
 
-        {cart.length > 0 && <div className="Header-alert">{cart.length}</div>}
+        <Link to="/checkout">
+          <i className="fas fa-shopping-basket fa-2x" />
+        </Link>
       </div>
     </div>
   );

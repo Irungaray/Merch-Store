@@ -40,7 +40,7 @@ const Payment = ({ history }) => {
 
   const handleSkipPayment = () => {
     history.push('/checkout/success');
-  }
+  };
 
   return (
     <div className="Payment">
