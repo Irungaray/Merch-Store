@@ -12,5 +12,5 @@ describe('<Footer />', () => {
 
   test('Render of Footer Title', () => {
     expect(footer.find('.Footer-title').text()).toEqual('Merch Store');
-  })
+  });
 });
