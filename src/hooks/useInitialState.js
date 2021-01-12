@@ -11,10 +11,14 @@ const useInitialState = () => {
   const [state, setState] = useState(initialState);
   const [products, setProducts] = useState([]);
 
-  useEffect(async () => {
-    const response = await axios(API);
-    setProducts(response.data);
-  });
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios(API);
+      setProducts(response.data);
+    }
+
+    getData();
+  }, []);
 
   const addToCart = (payload) => {
     setState({

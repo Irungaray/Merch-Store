@@ -16,7 +16,7 @@ const Payment = ({ history }) => {
     currency: 'USD',
   };
 
-  console.log(paypalOptions.clientId);
+  // console.log(paypalOptions.clientId);
 
   const buttonStyles = {
     layout: 'vertical',
@@ -24,7 +24,7 @@ const Payment = ({ history }) => {
   };
 
   const handlePaymentSuccess = (data) => {
-    console.log(data);
+    // console.log(data);
 
     if (data.status === 'COMPLETED') {
       const newOrder = {

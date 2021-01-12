@@ -6,7 +6,7 @@ const Product = ({ product, handleAddToCart }) => {
   //  const API = 'https://merchstoreapi.appspot.com'
 
   const API = 'https://merchstoreapi.appspot.com';
-  console.log(API);
+  // console.log(API);
 
   return (
     <div className="Products-item">

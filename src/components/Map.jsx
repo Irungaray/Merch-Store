@@ -16,7 +16,7 @@ const Map = ({ data }) => {
     // corrected? adding the +
   };
 
-  console.log(defaultCenter);
+  // console.log(defaultCenter);
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyCmXCbBEd0K2QyDb0ev9vUYh4BiI_ciNhk">
