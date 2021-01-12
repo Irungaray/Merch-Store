@@ -11,7 +11,7 @@ const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="Products-item">
       <img
-        src={`F:\Atom\Proyectos Personales\portafolioReact\api\public${product.image[0].url}`}
+        src={product.image[0].url}
         alt={product.title}
       />
 
